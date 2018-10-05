@@ -110,7 +110,7 @@ class VueInstance
      * @param string|object|array $value
      * @return $this
      */
-    public function addWatch(string $key, $value)
+    public function addWatcher(string $key, $value)
     {
         $this->addOption('watch', $key, $value);
         return $this;

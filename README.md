@@ -27,8 +27,8 @@ This PHP-code....
     ->addPropsData('property1','value1')
     ->addPropsData('property2',true)
     ->addPropsData('property3',['item1', 'item2'])
-    ->addWatch('data1','value1')
-    ->addWatch('data2','value2')
+    ->addWatcher('data1','value1')
+    ->addWatcher('data2','value2')
     ->generate();
 ```
 ...results in the following JS-code:

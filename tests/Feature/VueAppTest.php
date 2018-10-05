@@ -71,8 +71,8 @@ class VueAppTest extends TestCase
     public function test_simple_vue_app_with_watchers()
     {
         $code = (new VueInstance('#app'))
-            ->addWatch('data1','value1')
-            ->addWatch('data2','value2')
+            ->addWatcher('data1','value1')
+            ->addWatcher('data2','value2')
             ->generate();
         $this->assertEquals(
             'new Vue({"el":"#app","watch":{"data1":"value1","data2":"value2"}});',
@@ -95,8 +95,8 @@ class VueAppTest extends TestCase
             ->addPropsData('property1','value1')
             ->addPropsData('property2',true)
             ->addPropsData('property3',['item1', 'item2'])
-            ->addWatch('data1','value1')
-            ->addWatch('data2','value2')
+            ->addWatcher('data1','value1')
+            ->addWatcher('data2','value2')
             ->generate();
         $this->assertEquals(
             'new Vue({"el":"#app","computed":{"computed_5":function () { return 2+3 },"computed_8":function () { return 4+4 }},"data":{"string":"value","boolean_true":true,"boolean_false":false,"array":["item1","item2"],"object":{}},"methods":{"say_hello":function () { alert("Hello!") },"say_bye":function () { alert("Bye!") }},"propsData":{"property1":"value1","property2":true,"property3":["item1","item2"]},"watch":{"data1":"value1","data2":"value2"}});',
