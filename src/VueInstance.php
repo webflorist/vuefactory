@@ -55,12 +55,15 @@ class VueInstance
      * Adds a computed property to this Vue instance.
      *
      * @param string $key
-     * @param string $function
+     * @param mixed $value
      * @return $this
      */
-    public function addComputed(string $key, string $function)
+    public function addComputed(string $key, $value)
     {
-        $this->addOption('computed', $key, trim($function));
+        if (is_string($value)) {
+            $value = trim($value);
+        }
+        $this->addOption('computed', $key, $value);
         return $this;
     }
 
