@@ -145,6 +145,10 @@ class VueInstance
     private function javaScripIfy($item)
     {
 
+        if (is_null($item)) {
+            return 'null';
+        }
+
         if (is_bool($item)) {
             return ($item === true) ? 'true' : 'false';
         }
