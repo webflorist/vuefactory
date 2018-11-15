@@ -1,0 +1,20 @@
+{
+    "name": "nicat/vuefactory",
+    "description": "PHP package to generate Vue-Apps",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gerald Buttinger",
+            "email": "gerald.buttinger@nic.at"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nicat\\VueFactory\\": "src/",
+            "VueFactoryTests\\": "tests/"
+        }
+    }
+}
