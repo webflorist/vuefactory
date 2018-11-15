@@ -1,13 +1,13 @@
 <?php
 
-namespace Nicat\VueFactory\Options;
+namespace Webflorist\VueFactory\Options;
 
 /**
  * This class represents the "data" object of Vue.
  * (see https://vuejs.org/v2/api/#data)
  *
  * Class Data
- * @package Nicat\VueFactory
+ * @package Webflorist\VueFactory
  */
 class Data
 {

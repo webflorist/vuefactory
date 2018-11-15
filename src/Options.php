@@ -1,19 +1,19 @@
 <?php
 
-namespace Nicat\VueFactory;
+namespace Webflorist\VueFactory;
 
-use Nicat\VueFactory\Options\Computed;
-use Nicat\VueFactory\Options\Data;
-use Nicat\VueFactory\Options\Methods;
-use Nicat\VueFactory\Options\PropsData;
-use Nicat\VueFactory\Options\Watch;
+use Webflorist\VueFactory\Options\Computed;
+use Webflorist\VueFactory\Options\Data;
+use Webflorist\VueFactory\Options\Methods;
+use Webflorist\VueFactory\Options\PropsData;
+use Webflorist\VueFactory\Options\Watch;
 
 /**
  * This class represents the options object of Vue.
  * (see https://vuejs.org/v2/api/#vm-options)
  *
  * Class Options
- * @package Nicat\VueFactory
+ * @package Webflorist\VueFactory
  *
  * DOM-Options:
  * ------------

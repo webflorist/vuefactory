@@ -1,11 +1,11 @@
-# nicat/vuefactory
+# webflorist/vuefactory
 **PHP package to generate Vue-Apps**
 
 ## Description
 This package provides functionality for building Vue-Apps in PHP.
 
 ## Installation
-1. Require the package via composer:  `composer require nicat/vuefactory`
+1. Require the package via composer:  `composer require webflorist/vuefactory`
 
 ## Configuration
 No configuration is necessary.
@@ -14,7 +14,7 @@ No configuration is necessary.
 ### Example
 This PHP-code....
 ```php
-(new Nicat\VueFactory\VueInstance('#app'))
+(new Webflorist\VueFactory\VueInstance('#app'))
     ->addComputed('computed_5','function () { return 2+3 })')
     ->addComputed('computed_8','function () { return 4+4 })')
     ->addData('string','value')
