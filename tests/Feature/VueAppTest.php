@@ -1,7 +1,7 @@
 <?php
 namespace VueFactoryTests\Feature;
 
-use Nicat\VueFactory\VueInstance;
+use Webflorist\VueFactory\VueInstance;
 use VueFactoryTests\TestCase;
 
 class VueAppTest extends TestCase

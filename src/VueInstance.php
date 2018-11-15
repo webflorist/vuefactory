@@ -1,13 +1,13 @@
 <?php
 
-namespace Nicat\VueFactory;
+namespace Webflorist\VueFactory;
 
 /**
  * This class represents a Vue instance.
  * (see https://vuejs.org/v2/guide/instance.html
  *
  * Class VueInstance
- * @package Nicat\VueFactory
+ * @package Webflorist\VueFactory
  */
 class VueInstance
 {
@@ -130,7 +130,7 @@ class VueInstance
     private function addOption($optionType, string $key, $value)
     {
         if (!property_exists($this->options, $optionType)) {
-            $objectClass = 'Nicat\\VueFactory\\Options\\'.ucfirst($optionType);
+            $objectClass = 'Webflorist\\VueFactory\\Options\\'.ucfirst($optionType);
             $this->options->{$optionType} = new $objectClass();
         }
         $this->options->{$optionType}->{$key} = $value;

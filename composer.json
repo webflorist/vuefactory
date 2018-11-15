@@ -1,11 +1,11 @@
 {
-    "name": "nicat/vuefactory",
-    "description": "PHP package to generate Vue-Apps",
+    "name": "webflorist/vuefactory",
+    "description": "Build Vue Instances in PHP.",
     "type": "library",
     "authors": [
         {
             "name": "Gerald Buttinger",
-            "email": "gerald.buttinger@nic.at"
+            "email": "gerald@code.florist"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nicat\\VueFactory\\": "src/",
+            "Webflorist\\VueFactory\\": "src/",
             "VueFactoryTests\\": "tests/"
         }
     }
