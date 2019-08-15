@@ -177,7 +177,7 @@ class VueInstance
             return $item;
         }
 
-        return '"' . trim($item) . '"';
+        return json_encode(trim($item));
 
     }
 
