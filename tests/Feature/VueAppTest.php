@@ -80,6 +80,18 @@ class VueAppTest extends TestCase
         );
     }
 
+    public function test_simple_vue_app_with_mountedHook()
+    {
+        $code = (new VueInstance('#app'))
+            ->addMountedHook('alert("mounted!")')
+            ->generate();
+        $this->assertEquals(
+            'new Vue({"el":"#app","mounted":function () { alert("mounted!") }});',
+            str_replace(["\r", "\n"], '', $code)
+
+        );
+    }
+
     public function test_complex_vue_app()
     {
         $code = (new VueInstance('#app'))

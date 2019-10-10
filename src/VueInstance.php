@@ -2,6 +2,8 @@
 
 namespace Webflorist\VueFactory;
 
+use Webflorist\VueFactory\Options\LifecycleHook;
+
 /**
  * This class represents a Vue instance.
  * (see https://vuejs.org/v2/guide/instance.html
@@ -48,6 +50,7 @@ class VueInstance
      */
     public function generate()
     {
+        $this->generateLifeCycleHooks();
         return "new Vue(" . $this->javaScripIfy($this->options) . ");";
     }
 
@@ -119,6 +122,18 @@ class VueInstance
         return $this;
     }
 
+    /**
+     * Adds code to the "mounted" lifecycle hook.
+     *
+     * @param string $key
+     * @param string|object|array $value
+     * @return $this
+     */
+    public function addMountedHook(string $jsCode)
+    {
+        $this->addLifecycleHook('mounted', $jsCode);
+        return $this;
+    }
 
     /**
      * Adds a specific option to $this->options.
@@ -130,10 +145,25 @@ class VueInstance
     private function addOption($optionType, string $key, $value)
     {
         if (!property_exists($this->options, $optionType)) {
-            $objectClass = 'Webflorist\\VueFactory\\Options\\'.ucfirst($optionType);
+            $objectClass = 'Webflorist\\VueFactory\\Options\\' . ucfirst($optionType);
             $this->options->{$optionType} = new $objectClass();
         }
         $this->options->{$optionType}->{$key} = $value;
+    }
+
+    /**
+     * Adds code to a specific lifecycle hook.
+     *
+     * @param $optionType
+     * @param string $key
+     * @param $value
+     */
+    private function addLifecycleHook($hookType, string $jsCode)
+    {
+        if (!property_exists($this->options, $hookType)) {
+            $this->options->{$hookType} = new LifecycleHook();
+        }
+        $this->options->{$hookType}->addCode($jsCode);
     }
 
     /**
@@ -197,5 +227,32 @@ class VueInstance
             return true;
         }
         return false;
+    }
+
+    /**
+     * Renders any set lifecycle hooks to string.
+     *
+     * @return bool
+     */
+    private function generateLifecycleHooks()
+    {
+        $lifeCycleHooks = [
+            'beforeCreate',
+            'created',
+            'beforeMount',
+            'mounted',
+            'beforeUpdate',
+            'updated',
+            'activated',
+            'deactivated',
+            'beforeDestroy',
+            'destroyed',
+            'errorCaptured'
+        ];
+        foreach ($lifeCycleHooks as $hookType) {
+            if (property_exists($this->options, $hookType)) {
+                $this->options->{$hookType} = $this->options->{$hookType}->generate();
+            }
+        }
     }
 }
